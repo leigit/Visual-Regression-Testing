@@ -30,7 +30,7 @@ exports.config = {
     // https://docs.saucelabs.com/reference/platforms-configurator
     //
     capabilities: [{
-        browserName: 'firefox'
+        browserName: 'chrome'
     }],
     //
     // ===================
@@ -39,20 +39,20 @@ exports.config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: silent | verbose | command | data | result | error
-    logLevel: 'silent',
+    logLevel: 'verbose',
     //
     // Enables colors for log output.
     coloredLogs: true,
     //
     // Saves a screenshot to a given path if a command fails.
-    screenshotPath: './errorShots/',
+    screenshotPath: 'tests/errorShots/',
     //
     // Set a base URL in order to shorten url command calls. If your url parameter starts
     // with "/", the base url gets prepended.
     baseUrl: 'http://localhost:9000',
     //
     // Default timeout for all waitForXXX commands.
-    waitforTimeout: 10000,
+    waitforTimeout: 900000,
     //
     // Initialize the browser instance with a WebdriverIO plugin. The object should have the
     // plugin name as key and the desired plugin options as property. Make sure you have
@@ -61,16 +61,16 @@ exports.config = {
     // WebdriverCSS: https://github.com/webdriverio/webdrivercss
     // WebdriverRTC: https://github.com/webdriverio/webdriverrtc
     // Browserevent: https://github.com/webdriverio/browserevent
-    plugins: {
-        webdrivercss: {
-            screenshotRoot: 'my-shots',
-            failedComparisonsRoot: 'diffs',
-            misMatchTolerance: 0.05,
-            screenWidth: [320,480,640,1024]
-        },
+    // plugins: {
+    //     webdrivercss: {
+    //         screenshotRoot: 'tests/my-shots',
+    //         failedComparisonsRoot: 'tests/diffs',
+    //         misMatchTolerance: 0.05,
+    //         screenWidth: [320,480,640,1024]
+    //     },
     //     webdriverrtc: {},
     //     browserevent: {}
-     },
+     //},
     //
     // Framework you want to run your specs with.
     // The following are supported: mocha, jasmine and cucumber

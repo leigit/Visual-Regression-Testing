@@ -1,5 +1,5 @@
 {
-  "name": "Visual Regression Testing",
+  "name": "Visual_Regression_Testing",
   "version": "1.0.0",
   "description": "css regression testing with selenium and webdriverio",
   "main": "gulpfile.js",
@@ -23,6 +23,6 @@
     "selenium-standalone": "^4.8.0",
     "serve-static": "^1.10.2",
     "webdrivercss": "^1.1.10",
-    "webdriverio": "<3.0.0"
+    "webdriverio": "^2.4.5"
   }
 }

@@ -28,12 +28,10 @@ gulp.task('selenium', (done) => {
   });
 });
 
+
 gulp.task('e2e', ['http', 'selenium'], () => {
-  return gulp.src('wdio.conf.js')
-    .pipe(webdriver()).on('error', () => {
-      seleniumServer.kill();
-      process.exit(1);
-    });
+  return gulp.src('tests/specs/test1.js')
+
 });
 
 gulp.task('test', ['e2e'], () => {
