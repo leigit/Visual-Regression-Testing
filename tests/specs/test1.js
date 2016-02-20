@@ -3,33 +3,30 @@ var webdrivercss = require('webdrivercss');
 
 var client = webdriverio.remote({
 desiredCapabilities: {
-browserName: 'firefox'
+//browserName: 'chrome'
 }
 });
 
 webdrivercss.init(client, {
 screenshotRoot: 'tests/visual/baseline',
 failedComparisonsRoot: 'tests/visual/failures',
-});
+misMatchTolerance: 0.05,
+screenWidth: [320,480,640,1024]
+}
+);
 
-client
-.init()
-.url('http://crashbangcreative.lg/app/')
-.webdrivercss('homepage', [{
-name: 'title',
-elem: 'body'
-}])
-.end();
+var assert = require('assert');
 
-// describe('page title', function() {
-//   it('has the correct page title', function() {
-//     client
-//     .init()
-//     .url('http://crashbangcreative.lg/app/')
-//     .webdrivercss('login form', [{
-//     name: 'title',
-//     elem: 'body'
-//     }])
-//     .end();
-//   });
-// });
+describe('my website should always look the same',function() {
+  this.timeout(100000);
+    it('header should look the same',function(done) {
+      client
+      .init()
+      .url('http://example.com')
+      .webdrivercss('homepage', [{
+      name: 'title',
+      elem: 'body'
+      }])
+      .call(done);
+    });
+  });

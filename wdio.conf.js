@@ -10,7 +10,7 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './test/specs/**/*.js'
+        './tests/specs/**/*.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -30,7 +30,7 @@ exports.config = {
     // https://docs.saucelabs.com/reference/platforms-configurator
     //
     capabilities: [{
-        browserName: 'chrome'
+        browserName: 'firefox'
     }],
     //
     // ===================
@@ -49,7 +49,7 @@ exports.config = {
     //
     // Set a base URL in order to shorten url command calls. If your url parameter starts
     // with "/", the base url gets prepended.
-    baseUrl: 'http://localhost:9000',
+    //baseUrl: 'http://example.com',
     //
     // Default timeout for all waitForXXX commands.
     waitforTimeout: 900000,
@@ -61,16 +61,16 @@ exports.config = {
     // WebdriverCSS: https://github.com/webdriverio/webdrivercss
     // WebdriverRTC: https://github.com/webdriverio/webdriverrtc
     // Browserevent: https://github.com/webdriverio/browserevent
-    // plugins: {
-    //     webdrivercss: {
-    //         screenshotRoot: 'tests/my-shots',
-    //         failedComparisonsRoot: 'tests/diffs',
-    //         misMatchTolerance: 0.05,
-    //         screenWidth: [320,480,640,1024]
-    //     },
+    plugins: {
+        webdrivercss: {
+            screenshotRoot: 'tests/visual/baseline',
+            failedComparisonsRoot: 'tests/visual/failures',
+            misMatchTolerance: 0.05,
+            screenWidth: [320,480,640,1024]
+        }
     //     webdriverrtc: {},
     //     browserevent: {}
-     //},
+     },
     //
     // Framework you want to run your specs with.
     // The following are supported: mocha, jasmine and cucumber
